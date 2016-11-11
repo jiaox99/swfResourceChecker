@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+                       xmlns:r12="http://ns.robotlegs.org/flex/rl2" xmlns:mvcs="robotlegs.bender.bundles.mvcs.*"
+                       xmlns:config="*"
+                       showStatusBar="false">
+    <fx:Declarations>
+        <r12:ContextBuilder>
+            <mvcs:MVCSBundle />
+            <config:ResCheckerConfig />
+        </r12:ContextBuilder>
+    </fx:Declarations>
+    <fx:Script><![CDATA[
+        import mx.controls.Alert;
+        ]]></fx:Script>
+    <s:HGroup height="100%" width="100%">
+        <s:VGroup width="50%" height="100%" verticalAlign="middle" horizontalAlign="center">
+            <s:Label text="检查选项" />
+            <s:BorderContainer width="100%" height="100%">
+                <s:layout>
+                    <s:VerticalLayout/>
+                </s:layout>
+                <s:CheckBox label="舞台非空检查" id="stageCheckBox" />
+                <s:CheckBox label="冲突定义检查" id="defCheckBox" />
+                <s:TextArea id="defArea" width="100%" height="100%" toolTip="','分隔的绑定类定义"/>
+            </s:BorderContainer>
+            <s:Label text="扫描目录" />
+            <s:BorderContainer width="100%" height="100%">
+                <s:Scroller width="100%" height="100%">
+                    <s:VGroup id="dirContainer" toolTip="拖动文件夹到这里以添加">
+                    </s:VGroup>
+                </s:Scroller>
+            </s:BorderContainer>
+            <s:Button label="开始检查" id="startButton"/>
+        </s:VGroup>
+        <s:TextArea id="logArea" text="检查结果......" width="50%" height="100%" editable="false" />
+    </s:HGroup>
+</s:WindowedApplication>
